@@ -32,20 +32,32 @@
 class PotatoBoard
 {
 public:
-    PotatoBoard(std::vector<int> potatoes, std::vector<std::vector<int>> possMoves);
-    ~PotatoBoard(){
-        delete[] currentBoard_;
-    }
+    PotatoBoard(std::vector<int> potatoes,std::vector<int> emptySquares, std::vector<int> possMoves, int size);
+    ~PotatoBoard(){}
 
 private:
-    int* currentBoard_;
-    std::vector<std::vector<int>> possMoves_;
+    std::vector<int> currentBoard_;
+    std::vector<int> possMoves_;
+    int size_;
+    int numPotatoes_;
 
 public:
-    bool makeMove(int from, int to);
+    bool makeMove(int move);
+    bool undoMove(int move);
 
     std::vector<int> getPotatoes();
 
+    int getNumPotatoes(){
+        return numPotatoes_;
+    };
+
+    std::vector<int> getMoveList();
+
+    std::vector<int> getCurrentBoard(){
+        return currentBoard_;
+    }
+
+    void printCurrentBoard();
 };
 
 #endif // POTATOBOARD_HPP

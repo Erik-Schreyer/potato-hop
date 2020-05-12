@@ -8,7 +8,9 @@ include_directories(include)
 
 add_executable(potato-hop
     include/potatoboard.hpp
+    include/potatosolver.hpp
     potatoboard.cpp
+    potatosolver.cpp
     main.cpp
 
     )
